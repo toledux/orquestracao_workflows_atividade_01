@@ -77,7 +77,6 @@ def pipeline():
     def analise_group(categorias: list[dict[str, Any]]) -> list[dict[str, Any]]:
         @task(
             task_id="calcular_metricas_categoria",
-            pool="ecommerce_pool",
             map_index_template="{{ task.op_kwargs['grupo']['categoria'] }}",
         )
         def calcular_metricas_categoria(grupo: dict[str, Any]) -> dict[str, Any]:
@@ -168,6 +167,5 @@ def pipeline():
     categorias_prontas = ingestao_group()
     metricas_calculadas = analise_group(categorias_prontas)
     persistencia_group(metricas_calculadas)
-
 
 pipeline()

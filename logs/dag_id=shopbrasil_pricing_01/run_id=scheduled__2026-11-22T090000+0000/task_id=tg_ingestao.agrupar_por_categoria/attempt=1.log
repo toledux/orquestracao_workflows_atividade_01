@@ -1,0 +1,17 @@
+[2026-11-24T02:38:37.872+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-24T02:38:37.922+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: shopbrasil_pricing_01.tg_ingestao.agrupar_por_categoria scheduled__2026-11-22T09:00:00+00:00 [queued]>
+[2026-11-24T02:38:37.937+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: shopbrasil_pricing_01.tg_ingestao.agrupar_por_categoria scheduled__2026-11-22T09:00:00+00:00 [queued]>
+[2026-11-24T02:38:37.938+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-11-24T02:38:37.958+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): tg_ingestao.agrupar_por_categoria> on 2026-11-22 09:00:00+00:00
+[2026-11-24T02:38:37.963+0000] {standard_task_runner.py:64} INFO - Started process 229 to run task
+[2026-11-24T02:38:37.969+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'shopbrasil_pricing_01', 'tg_ingestao.agrupar_por_categoria', 'scheduled__2026-11-22T09:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/shopbrasil_pricing.py', '--cfg-path', '/tmp/tmpm3ypbcwl']
+[2026-11-24T02:38:37.970+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask tg_ingestao.agrupar_por_categoria
+[2026-11-24T02:38:38.162+0000] {task_command.py:426} INFO - Running <TaskInstance: shopbrasil_pricing_01.tg_ingestao.agrupar_por_categoria scheduled__2026-11-22T09:00:00+00:00 [running]> on host 9d8b8e0910f1
+[2026-11-24T02:38:38.251+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='shopbrasil_pricing_01' AIRFLOW_CTX_TASK_ID='tg_ingestao.agrupar_por_categoria' AIRFLOW_CTX_EXECUTION_DATE='2026-11-22T09:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-11-22T09:00:00+00:00'
+[2026-11-24T02:38:38.253+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-24T02:38:38.254+0000] {python.py:237} INFO - Done. Returned value was: [{'categoria': 'electronics', 'precos': [64.0, 109.0, 109.0, 114.0, 599.0, 999.99]}, {'categoria': 'jewelery', 'precos': [695.0, 168.0, 9.99, 10.99]}, {'categoria': "men's clothing", 'precos': [109.95, 22.3, 55.99, 15.99]}, {'categoria': "women's clothing", 'precos': [56.99, 29.95, 39.99, 9.85, 7.95, 12.99]}]
+[2026-11-24T02:38:38.256+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-24T02:38:38.290+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=shopbrasil_pricing_01, task_id=tg_ingestao.agrupar_por_categoria, run_id=scheduled__2026-11-22T09:00:00+00:00, execution_date=20261122T090000, start_date=20261124T023837, end_date=20261124T023838
+[2026-11-24T02:38:38.343+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-24T02:38:38.514+0000] {taskinstance.py:3503} INFO - 4 downstream tasks scheduled from follow-on schedule check
+[2026-11-24T02:38:38.519+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

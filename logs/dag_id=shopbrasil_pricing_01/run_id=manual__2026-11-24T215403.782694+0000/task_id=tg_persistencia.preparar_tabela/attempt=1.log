@@ -1,0 +1,30 @@
+[2026-11-24T21:54:13.956+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-24T21:54:13.986+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: shopbrasil_pricing_01.tg_persistencia.preparar_tabela manual__2026-11-24T21:54:03.782694+00:00 [queued]>
+[2026-11-24T21:54:13.995+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: shopbrasil_pricing_01.tg_persistencia.preparar_tabela manual__2026-11-24T21:54:03.782694+00:00 [queued]>
+[2026-11-24T21:54:13.996+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-11-24T21:54:14.010+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): tg_persistencia.preparar_tabela> on 2026-11-24 21:54:03.782694+00:00
+[2026-11-24T21:54:14.014+0000] {standard_task_runner.py:64} INFO - Started process 543 to run task
+[2026-11-24T21:54:14.018+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'shopbrasil_pricing_01', 'tg_persistencia.preparar_tabela', 'manual__2026-11-24T21:54:03.782694+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/shopbrasil_pricing.py', '--cfg-path', '/tmp/tmpi5ime5be']
+[2026-11-24T21:54:14.019+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask tg_persistencia.preparar_tabela
+[2026-11-24T21:54:14.257+0000] {task_command.py:426} INFO - Running <TaskInstance: shopbrasil_pricing_01.tg_persistencia.preparar_tabela manual__2026-11-24T21:54:03.782694+00:00 [running]> on host 15b154a42d4b
+[2026-11-24T21:54:14.354+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='shopbrasil_pricing_01' AIRFLOW_CTX_TASK_ID='tg_persistencia.preparar_tabela' AIRFLOW_CTX_EXECUTION_DATE='2026-11-24T21:54:03.782694+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-11-24T21:54:03.782694+00:00'
+[2026-11-24T21:54:14.355+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-24T21:54:14.375+0000] {base.py:84} INFO - Using connection ID 'postgres_lab' for task execution.
+[2026-11-24T21:54:14.382+0000] {sql.py:495} INFO - Running statement: 
+                CREATE TABLE IF NOT EXISTS preco_categoria_snapshot (
+                    data_referencia DATE NOT NULL,
+                    categoria VARCHAR(120) NOT NULL,
+                    preco_medio NUMERIC(10, 2) NOT NULL,
+                    preco_minimo NUMERIC(10, 2) NOT NULL,
+                    preco_maximo NUMERIC(10, 2) NOT NULL,
+                    quantidade_produtos INTEGER NOT NULL,
+                    atualizado_em TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+                    PRIMARY KEY (data_referencia, categoria)
+                );
+                , parameters: None
+[2026-11-24T21:54:14.384+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-11-24T21:54:14.385+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-24T21:54:14.396+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=shopbrasil_pricing_01, task_id=tg_persistencia.preparar_tabela, run_id=manual__2026-11-24T21:54:03.782694+00:00, execution_date=20261124T215403, start_date=20261124T215413, end_date=20261124T215414
+[2026-11-24T21:54:14.433+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-11-24T21:54:14.646+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-24T21:54:14.649+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
